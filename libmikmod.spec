@@ -13,6 +13,7 @@ URL:		http://mikmod.darkorb.net/
 BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	alsa-devel
 BuildRequires:	esound-devel
+BuildRequires:  audiofile-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description

@@ -1,0 +1,14 @@
+--- docs/mikmod.texi~	Mon Jun 28 05:00:05 1999
++++ docs/mikmod.texi	Wed Oct 13 02:42:31 1999
+@@ -74,9 +74,9 @@
+ 
+ @c ========================================================== File information
+ @ifnottex
+-@dircategory Programming
++@dircategory Libraries:
+ @direntry
+-* MikMod: (mikmod).            MikMod Sound Library.
++* MikMod: (mikmod).			MikMod Sound Library
+ @end direntry
+ 
+ @c ========================================================== Top node

@@ -1,20 +1,14 @@
-%define		ver	3.1.7
-%define		rel	d
 Summary:	libmikmod - a portable sound library for Unix
 Summary(fr):	Bibliothèque sonore libmikmod
 Summary(pl):	libmikmod - biblioteka do obs³igo d¼wiêku dla ró¿nych Unixów
 Name:		libmikmod
-Version:	%{ver}%{rel}
-Release:	5
+Version:	3.1.8
+Release:	1
 Copyright:	LGPL
 Group:		Libraries
 Group(pl):	Biblioteki
-Source:		http://www.multimania.com/miodrag/libmikmod/%{name}-%{ver}.tar.gz
-Patch0:		libmikmod-%{ver}-a.patch
-Patch1:		libmikmod-%{ver}-b.patch
-Patch2:		libmikmod-%{ver}-c.patch
-Patch3:		libmikmod-%{ver}-d.patch
-Patch4:		libmikmod-info.patch
+Source:		http://www.multimania.com/miodrag/libmikmod/%{name}-%{version}.tar.gz
+Patch:		libmikmod-info.patch
 URL:		http://http://www.multimania.com/miodrag/mikmod/
 BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	alsa-devel
@@ -79,12 +73,8 @@ Bibliothèques statiques libmikmod.
 Biblioteki statyczne libmikmod.
 
 %prep
-%setup -q -n %{name}-%{ver}
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p0
+%setup -q 
+%patch -p0
 
 %build
 LDFLAGS="-s"; export LDFLAGS

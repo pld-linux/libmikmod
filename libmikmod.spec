@@ -15,6 +15,7 @@ Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.mikmod.org/files/libmikmod/%{name}-%{version}.tar.gz
+# Source0-md5: 14bf3f18cf0187f5dab46e42a3ddda84
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-AC_LIBOBJ.patch
 URL:		http://www.mikmod.org/

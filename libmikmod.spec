@@ -80,7 +80,7 @@ Bibliothèques statiques libmikmod.
 Biblioteki statyczne libmikmod.
 
 %prep
-%setup -q 
+%setup -q
 %patch -p0
 
 %build

@@ -1,8 +1,8 @@
 %define		ver	3.1.7
 %define		rel	d
-Summary:	libmikmod sound library
+Summary:	libmikmod - a portable sound library for Unix
 Summary(fr):	Bibliothèque sonore libmikmod
-Summary(pl):	Biblioteka d¼wiêku libmikmod
+Summary(pl):	libmikmod - biblioteka do obs³igo d¼wiêku dla ró¿nych Unixów
 Name:		libmikmod
 Version:	%{ver}%{rel}
 Release:	5
@@ -22,8 +22,17 @@ BuildRequires:	esound-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
-A portable sound library for Unix and other systems, capable of playing samples
-as well as module files, on a wide range of sound devices.
+Libmikmod is a portable sound library, capable of playing samples as well as
+module files, originally written by Jean-Paul Mikkers (MikMak) for DOS. It
+has subsequently been hacked by many hands and now runs on many Unix
+flavours.
+
+It uses the OSS /dev/dsp driver including in all recent kernels for output,
+as well as ALSA and EsounD, and will also write wav files.
+
+Supported file formats include mod, stm, s3m, mtm, xm, and it.  Full source
+included, use of this library for music/sound effects in your own programs
+is encouraged !
 
 %description -l fr
 Une bibliothèque sonore portable pour Unix et d'autres systèmes, capable de

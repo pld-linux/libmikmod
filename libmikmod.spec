@@ -1,6 +1,6 @@
 #
 # Conditional build:
-# bcond_off_alsa
+# _without_alsa
 #
 Summary:	libmikmod - a portable sound library for Unix
 Summary(fr):	Bibliothèque sonore libmikmod
@@ -21,7 +21,7 @@ BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	esound-devel
 BuildRequires:	audiofile-devel
 %ifnarch sparc sparc64
-%{!?bcond_off_alsa:BuildRequires:	alsa-lib-devel}
+%{!?_without_alsa:BuildRequires:	alsa-lib-devel}
 %endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -92,7 +92,7 @@ Biblioteki statyczne libmikmod.
 
 %build
 %configure \
-	%{?bcond_off_alsa:--disable-alsa}%{!?bcond_off_alsa:--enable-alsa} \
+	%{?_without_alsa:--disable-alsa}%{!?_without_alsa:--enable-alsa} \
 	--enable-esd \
 	--enable-oss
 %{__make}

@@ -117,7 +117,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/*.la
 
-%{_mandir}/man1/libmikmod-config.1.gz
+%{_mandir}/man1/libmikmod-config.1*
 %{_infodir}/mikmod*
 %{_includedir}/*
 %{_datadir}/aclocal/*

@@ -3,7 +3,7 @@ Summary(fr):	Bibliothèque sonore libmikmod
 Summary(pl):	libmikmod - biblioteka do obs³ugi d¼wiêku dla ró¿nych Unixów
 Name:		libmikmod
 Version:	3.1.8
-Release:	1
+Release:	2
 Copyright:	LGPL
 Group:		Libraries
 Group(pl):	Biblioteki

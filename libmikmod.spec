@@ -16,7 +16,7 @@ BuildRequires:  audiofile-devel
 %ifnarch sparc sparc64
 BuildRequires:	alsa-devel
 %endif
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Libmikmod is a portable sound library, capable of playing samples as well as

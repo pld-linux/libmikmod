@@ -3,13 +3,13 @@ Summary(fr):	Bibliothèque sonore libmikmod
 Summary(pl):	libmikmod - biblioteka do obs³ugi d¼wiêku dla ró¿nych Unixów
 Name:		libmikmod
 Version:	3.1.9
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Group(fr):	Librairies
 Group(pl):	Biblioteki
 Source0:	http://mikmod.darkorb.net/libmikmod/%{name}-%{version}.tar.gz
-Patch0:		libmikmod-info.patch
+Patch0:		%{name}-info.patch
 URL:		http://mikmod.darkorb.net/
 BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	esound-devel

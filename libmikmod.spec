@@ -88,7 +88,7 @@ LDFLAGS="-s"; export LDFLAGS
 	--enable-alsa \
 	--enable-esd \
 	--enable-oss
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT

@@ -40,7 +40,7 @@ for DOS. It has subsequently been hacked by many hands and now runs on
 many Unix flavours.
 
 It uses the OSS /dev/dsp driver including in all recent kernels for
-output, as well as ALSA and EsounD, and will also write wav files.
+output, as well as ALSA and EsounD, and will also write WAV files.
 
 Supported file formats include mod, stm, s3m, mtm, xm, and it. Full
 source included, use of this library for music/sound effects in your

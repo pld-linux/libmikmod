@@ -1,11 +1,11 @@
---- libmikmod-3.1.10/libmikmod/Makefile.in~	Tue Jul 23 12:37:36 2002
-+++ libmikmod-3.1.10/libmikmod/Makefile.in	Tue Jul 23 12:37:36 2002
+--- libmikmod-3.1.10/libmikmod/Makefile.in.orig	2002-01-23 23:15:14.000000000 +0100
++++ libmikmod-3.1.10/libmikmod/Makefile.in	2003-12-21 18:06:09.358750392 +0100
 @@ -20,7 +20,7 @@
  VPATH = @srcdir@
  
  DLOBJS=@DLOBJS@
 -LIBOBJS=@LIBOBJS@
-+AC_LIBOBJS=@AC_LIBOBJ@
++LTLIBOBJS=@LTLIBOBJS@
  LIBRARY_LIB=@LIBRARY_LIB@
  
  CC=@CC@
@@ -14,29 +14,18 @@
  
  LIB = libmikmod.la
 -OBJ = $(LIBOBJS) $(DLOBJS) \
-+OBJ = $(AC_LIBOBJ) $(DLOBJS) \
++OBJ = $(LTLIBOBJS) $(DLOBJS) \
        drv_AF.lo drv_aix.lo drv_alsa.lo drv_esd.lo drv_hp.lo drv_nos.lo \
        drv_oss.lo drv_pipe.lo drv_raw.lo drv_sam9407.lo drv_sgi.lo \
        drv_stdout.lo drv_sun.lo drv_ultra.lo drv_wav.lo \
---- libmikmod-3.1.10/configure.in~	Tue Jul 23 12:36:59 2002
-+++ libmikmod-3.1.10/configure.in	Tue Jul 23 12:36:59 2002
-@@ -134,9 +134,8 @@
- AC_PROG_CPP
- AC_PROG_INSTALL
- AC_PROG_LN_S
--AM_PROG_LIBTOOL
-+AC_PROG_LIBTOOL
- AC_PROG_MAKE_SET
--AC_PROG_RANLIB
+--- libmikmod-3.1.10/configure.in.orig	2002-01-22 02:29:27.000000000 +0100
++++ libmikmod-3.1.10/configure.in	2003-12-21 18:06:27.654968944 +0100
+@@ -376,8 +376,6 @@
  
- # Check if makeinfo support html output. If it doesn't, pretend it's missing
- # rather than failing rebuilding the documentation.
-@@ -377,7 +376,7 @@
  AC_CHECK_FUNCS(setenv snprintf srandom)
  AC_REPLACE_FUNCS(strcasecmp strdup strstr)
- # Change extension, as we use libtool
+-# Change extension, as we use libtool
 -LIBOBJS="`echo $LIBOBJS|sed -e 's/\.o/\.lo/g'`"
-+AC_LIBOBJ="`echo $AC_LIBOBJ|sed -e 's/\.o/\.lo/g'`"
  
  AC_HEADER_EGREP(srandom,math.h,AC_DEFINE(SRANDOM_IN_MATH_H))
  

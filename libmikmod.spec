@@ -15,7 +15,7 @@ Version:	%{_ver}a
 Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://mikmod.raphnet.net/files/libmikmod/%{name}-%{_ver}.tar.gz
+Source0:	http://mikmod.raphnet.net/files/%{name}-%{_ver}.tar.gz
 # Source0-md5:	705106da305e8de191549f1e7393185c
 Source1:	http://mikmod.raphnet.net/files/libmikmod-3.1.11-a.diff
 # Source1-md5:	5e56be5a32eecf3cfa195379a5ecb0ef

@@ -11,7 +11,7 @@ Summary(ru):	Звуковая библиотека libmikmod
 Summary(uk):	Звукова б╕бл╕отека libmikmod
 Name:		libmikmod
 Version:	3.1.10
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.mikmod.org/files/libmikmod/%{name}-%{version}.tar.gz

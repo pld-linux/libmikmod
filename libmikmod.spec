@@ -15,7 +15,7 @@ Patch1:		libmikmod-%{ver}-b.patch
 Patch2:		libmikmod-%{ver}-c.patch
 Patch3:		libmikmod-%{ver}-d.patch
 Patch4:		libmikmod-info.patch
-URL:		http://http://www.multimania.com/miodrag/mikmod
+URL:		http://http://www.multimania.com/miodrag/mikmod/
 BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	alsa-devel
 BuildRequires:	esound-devel

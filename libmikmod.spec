@@ -2,8 +2,8 @@ Summary:	libmikmod - a portable sound library for Unix
 Summary(fr):	Bibliothèque sonore libmikmod
 Summary(pl):	libmikmod - biblioteka do obs³ugi d¼wiêku dla ró¿nych Unixów
 Name:		libmikmod
-Version:	3.1.8
-Release:	2
+Version:	3.1.9
+Release:	1
 Copyright:	LGPL
 Group:		Libraries
 Group(pl):	Biblioteki

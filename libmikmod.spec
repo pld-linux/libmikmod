@@ -10,13 +10,6 @@ Version:	3.1.9
 Release:	4
 License:	LGPL
 Group:		Libraries
-Group(de):	Libraries
-Group(es):	Bibliotecas
-Group(fr):	Librairies
-Group(pl):	Biblioteki
-Group(pt_BR):	Bibliotecas
-Group(ru):	Библиотеки
-Group(uk):	Б╕бл╕отеки
 Source0:	http://mikmod.darkorb.net/libmikmod/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
 URL:		http://mikmod.darkorb.net/
@@ -59,13 +52,6 @@ Summary:	Libraries and include files to develop libmikmod applications
 Summary(fr):	BibliothХques et includes pour programmer pour libmikmod
 Summary(pl):	Biblioteki i pliki nagЁСwkowe dla libmikmod
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 
 %description devel
@@ -82,13 +68,6 @@ Summary:	Static libmikmod libraries
 Summary(fr):	BibliothХques statiques libmikmod
 Summary(pl):	Biblioteki statyczne libmikmod
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
 
 %description static

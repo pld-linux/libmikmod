@@ -45,7 +45,7 @@ Summary:	Libraries and include files to develop libmikmod applications
 Summary(fr):	Bibliothèques et includes pour programmer pour libmikmod
 Summary(pl):	Biblioteki i pliki nag³ówkowe dla libmikmod
 Group:		Development/Libraries
-Group(pl):	Progamowanie/Biblioteki
+Group(pl):	Programowanie/Biblioteki
 Prereq:		/usr/sbin/fix-info-dir
 Requires:	%{name} = %{version}
 

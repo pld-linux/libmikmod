@@ -15,7 +15,7 @@ BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	esound-devel
 BuildRequires:	audiofile-devel
 %ifnarch sparc sparc64
-BuildRequires:	alsa-devel
+BuildRequires:	alsa-lib-devel
 %endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 

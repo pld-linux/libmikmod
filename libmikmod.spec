@@ -5,7 +5,7 @@
 Summary:	libmikmod - a portable sound library for Unix
 Summary(es):	Biblioteca de sonidos libmikmod
 Summary(fr):	Bibliothèque sonore libmikmod
-Summary(pl):	libmikmod - biblioteka do obs³ugi d¼wiêku dla ró¿nych Unixów
+Summary(pl):	libmikmod - biblioteka do obs³ugi d¼wiêku dla ró¿nych Uniksów
 Summary(pt_BR):	Biblioteca de som libmikmod
 Summary(ru):	ú×ÕËÏ×ÁÑ ÂÉÂÌÉÏÔÅËÁ libmikmod
 Summary(uk):	ú×ÕËÏ×Á Â¦ÂÌ¦ÏÔÅËÁ libmikmod
@@ -55,7 +55,7 @@ capable de jouer aussi bien des effets sonores que des modules, sur un
 grand choix de périphériques sonores.
 
 %description -l pl
-Biblioteka d¼wiêku dla Unixa i innych systemów, umo¿liwiaj±ca
+Biblioteka d¼wiêku dla Uniksa i innych systemów, umo¿liwiaj±ca
 odtwarzanie sampli i modu³ów d¼wiêkowych na wielu rodzajach urz±dzeñ
 d¼wiêkowych.
 

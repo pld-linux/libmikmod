@@ -19,7 +19,7 @@ Source0:	http://www.mikmod.org/files/libmikmod/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-AC_LIBOBJ.patch
 Patch2:		%{name}-am18.patch
-URL:		http://www.mikmod.org/
+URL:		http://mikmod.raphnet.net/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
 BuildRequires:	libtool

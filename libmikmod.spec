@@ -1,3 +1,7 @@
+#
+# Conditional build:
+# bcond_off_alsa
+#
 Summary:	libmikmod - a portable sound library for Unix
 Summary(fr):	Bibliothèque sonore libmikmod
 Summary(pl):	libmikmod - biblioteka do obs³ugi d¼wiêku dla ró¿nych Unixów
@@ -7,6 +11,7 @@ Release:	3
 License:	LGPL
 Group:		Libraries
 Group(de):	Libraries
+Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
 Source0:	http://mikmod.darkorb.net/libmikmod/%{name}-%{version}.tar.gz
@@ -16,7 +21,7 @@ BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	esound-devel
 BuildRequires:	audiofile-devel
 %ifnarch sparc sparc64
-BuildRequires:	alsa-lib-devel
+%{!?bcond_off_alsa:BuildRequires:	alsa-lib-devel}
 %endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -87,7 +92,7 @@ Biblioteki statyczne libmikmod.
 
 %build
 %configure \
-	--enable-alsa \
+	%{?bcond_off_alsa:--disable-alsa}%{!?bcond_off_alsa:--enable-alsa} \
 	--enable-esd \
 	--enable-oss
 %{__make}

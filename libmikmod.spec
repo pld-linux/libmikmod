@@ -1,13 +1,13 @@
 #
 # Conditional build:
-# _without_alsa
+# _with_alsa		- warning: sigsegv while using oss
 #
 Summary:	libmikmod - a portable sound library for Unix
 Summary(fr):	Bibliothèque sonore libmikmod
 Summary(pl):	libmikmod - biblioteka do obs³ugi d¼wiêku dla ró¿nych Unixów
 Name:		libmikmod
 Version:	3.1.9
-Release:	4
+Release:	5
 License:	LGPL
 Group:		Libraries
 Source0:	http://mikmod.darkorb.net/libmikmod/%{name}-%{version}.tar.gz
@@ -20,7 +20,7 @@ BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	esound-devel
 BuildRequires:	audiofile-devel
 %ifnarch sparc sparc64
-%{!?_without_alsa:BuildRequires:	alsa-lib-devel}
+%{?_with_alsa:BuildRequires:	alsa-lib-devel}
 %endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -46,6 +46,8 @@ grand choix de périphériques sonores.
 Biblioteka d¼wiêku dla Unixa i innych systemów, umo¿liwiaj±ca
 odtwarzanie sampli i modu³ów d¼wiêkowych na wielu rodzajach urz±dzeñ
 d¼wiêkowych.
+
+Wspierane formaty plików to miêdzy innymi mod, stm, s3m, mtm, xm i it.
 
 %package devel
 Summary:	Libraries and include files to develop libmikmod applications
@@ -88,7 +90,7 @@ libtoolize --copy --force
 aclocal
 %{__autoconf}
 %configure \
-	%{?_without_alsa:--disable-alsa}%{!?_without_alsa:--enable-alsa} \
+	%{!?_with_alsa:--disable-alsa}%{?_with_alsa:--enable-alsa} \
 	--enable-esd \
 	--enable-oss
 %{__make}
@@ -97,8 +99,6 @@ aclocal
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
-
-gzip -9nf AUTHORS NEWS PROBLEMS README TODO
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -118,7 +118,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc {AUTHORS,NEWS,PROBLEMS,README,TODO}.gz
+%doc AUTHORS NEWS PROBLEMS README TODO
 %attr(755,root,root) %{_bindir}/libmikmod-config
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la

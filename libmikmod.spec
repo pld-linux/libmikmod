@@ -1,6 +1,6 @@
 #
 # Conditional build:
-# _with_alsa		- warning: sigsegv while using oss
+%bcond_with	alsa	# with ALSA; warning: SIGSEGV while using oss
 #
 Summary:	libmikmod - a portable sound library for Unix
 Summary(es):	Biblioteca de sonidos libmikmod
@@ -11,22 +11,23 @@ Summary(ru):	Звуковая библиотека libmikmod
 Summary(uk):	Звукова б╕бл╕отека libmikmod
 Name:		libmikmod
 Version:	3.1.10
-Release:	2
+Release:	3
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.mikmod.org/files/libmikmod/%{name}-%{version}.tar.gz
 # Source0-md5: 14bf3f18cf0187f5dab46e42a3ddda84
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-AC_LIBOBJ.patch
+Patch2:		%{name}-am18.patch
 URL:		http://www.mikmod.org/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	esound-devel
 BuildRequires:	audiofile-devel
 BuildRequires:	texinfo
-%{?_with_alsa:BuildRequires:	alsa-lib-devel}
+%{?with_alsa:BuildRequires:	alsa-lib-devel}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libmikmod2
 
@@ -138,6 +139,7 @@ Bibliotecas estАticas para desenvolvimento com libmikmod.
 %setup -q
 %patch0 -p0
 %patch1 -p1
+%patch2 -p1
 
 %build
 cp -f /usr/share/automake/{config.*,missing} .
@@ -145,7 +147,7 @@ cp -f /usr/share/automake/{config.*,missing} .
 %{__aclocal}
 %{__autoconf}
 %configure \
-	%{!?_with_alsa:--disable-alsa}%{?_with_alsa:--enable-alsa} \
+	%{!?with_alsa:--disable-alsa}%{?with_alsa:--enable-alsa} \
 	--enable-esd \
 	--enable-oss
 %{__make}
@@ -153,7 +155,8 @@ cp -f /usr/share/automake/{config.*,missing} .
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -169,11 +172,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc AUTHORS NEWS README TODO
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS README TODO
 %attr(755,root,root) %{_bindir}/libmikmod-config
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la

@@ -11,9 +11,11 @@ Source:		http://mikmod.darkorb.net/libmikmod/%{name}-%{version}.tar.gz
 Patch:		libmikmod-info.patch
 URL:		http://mikmod.darkorb.net/
 BuildRequires:	gettext-devel >= 0.10.35-9
-BuildRequires:	alsa-devel
 BuildRequires:	esound-devel
 BuildRequires:  audiofile-devel
+%ifnarch sparc sparc64
+BuildRequires:	alsa-devel
+%endif
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description

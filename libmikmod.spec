@@ -46,7 +46,6 @@ Summary(fr):	Bibliothèques et includes pour programmer pour libmikmod
 Summary(pl):	Biblioteki i pliki nag³ówkowe dla libmikmod
 Group:		Development/Libraries
 Group(pl):	Programowanie/Biblioteki
-Prereq:		/usr/sbin/fix-info-dir
 Requires:	%{name} = %{version}
 
 %description devel
@@ -103,10 +102,10 @@ rm -rf $RPM_BUILD_ROOT
 %postun	-p /sbin/ldconfig
 
 %post devel
-/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+[ -x /usr/sbin/fix-info-dir ] && /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %preun devel
-/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+[ -x /usr/sbin/fix-info-dir ] && /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %files
 %defattr(644,root,root,755)

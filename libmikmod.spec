@@ -143,7 +143,7 @@ Bibliotecas estáticas para desenvolvimento com libmikmod.
 %build
 cp -f /usr/share/automake/{config.*,missing} .
 %{__libtoolize}
-aclocal
+%{__aclocal}
 %{__autoconf}
 %configure \
 	%{!?_with_alsa:--disable-alsa}%{?_with_alsa:--enable-alsa} \

@@ -10,15 +10,17 @@ Summary(pt_BR):	Biblioteca de som libmikmod
 Summary(ru):	Звуковая библиотека libmikmod
 Summary(uk):	Звукова б╕бл╕отека libmikmod
 Name:		libmikmod
-Version:	3.1.10
-Release:	3
+%define		_ver	3.1.11
+Version:	%{_ver}a
+Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://www.mikmod.org/files/libmikmod/%{name}-%{version}.tar.gz
-# Source0-md5: 14bf3f18cf0187f5dab46e42a3ddda84
+Source0:	http://mikmod.raphnet.net/files/libmikmod/%{name}-%{_ver}.tar.gz
+# Source0-md5:	705106da305e8de191549f1e7393185c
+Source1:	http://mikmod.raphnet.net/files/libmikmod-3.1.11-a.diff
+# Source1-md5:	5e56be5a32eecf3cfa195379a5ecb0ef
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-AC_LIBOBJ.patch
-Patch2:		%{name}-am18.patch
 URL:		http://mikmod.raphnet.net/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
@@ -136,10 +138,10 @@ Bibliotecas estАticas para desenvolvimento com libmikmod.
 Статичн╕ б╕бл╕отеки для розробки програм, що користуються libmikmod.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{_ver}
+%{__patch} -p1 < %{SOURCE1}
 %patch0 -p0
 %patch1 -p1
-%patch2 -p1
 
 %build
 cp -f /usr/share/automake/{config.*,missing} .

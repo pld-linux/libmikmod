@@ -26,9 +26,7 @@ BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	esound-devel
 BuildRequires:	audiofile-devel
 BuildRequires:	texinfo
-%ifnarch sparc sparc64
 %{?_with_alsa:BuildRequires:	alsa-lib-devel}
-%endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libmikmod2
 

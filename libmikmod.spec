@@ -86,7 +86,7 @@ Biblioteki statyczne libmikmod.
 %patch -p0
 
 %build
-libtoolize --copy --force
+%{__libtoolize}
 aclocal
 %{__autoconf}
 %configure \

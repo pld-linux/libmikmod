@@ -7,9 +7,9 @@ Release:	1
 Copyright:	LGPL
 Group:		Libraries
 Group(pl):	Biblioteki
-Source:		http://www.multimania.com/miodrag/libmikmod/%{name}-%{version}.tar.gz
+Source:		http://mikmod.darkorb.net/libmikmod/%{name}-%{version}.tar.gz
 Patch:		libmikmod-info.patch
-URL:		http://http://www.multimania.com/miodrag/mikmod/
+URL:		http://mikmod.darkorb.net/
 BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	alsa-devel
 BuildRequires:	esound-devel

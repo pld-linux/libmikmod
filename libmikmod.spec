@@ -91,6 +91,9 @@ Biblioteki statyczne libmikmod.
 %patch -p0
 
 %build
+libtoolize --copy --force
+aclocal
+autoconf
 %configure \
 	%{?_without_alsa:--disable-alsa}%{!?_without_alsa:--enable-alsa} \
 	--enable-esd \

@@ -3,9 +3,10 @@ Summary(fr):	Bibliothèque sonore libmikmod
 Summary(pl):	libmikmod - biblioteka do obs³ugi d¼wiêku dla ró¿nych Unixów
 Name:		libmikmod
 Version:	3.1.9
-Release:	2
+Release:	3
 License:	LGPL
 Group:		Libraries
+Group(de):	Libraries
 Group(fr):	Librairies
 Group(pl):	Biblioteki
 Source0:	http://mikmod.darkorb.net/libmikmod/%{name}-%{version}.tar.gz
@@ -47,6 +48,7 @@ Summary:	Libraries and include files to develop libmikmod applications
 Summary(fr):	Bibliothèques et includes pour programmer pour libmikmod
 Summary(pl):	Biblioteki i pliki nag³ówkowe dla libmikmod
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
@@ -65,6 +67,7 @@ Summary:	Static libmikmod libraries
 Summary(fr):	Bibliothèques statiques libmikmod
 Summary(pl):	Biblioteki statyczne libmikmod
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
@@ -83,7 +86,6 @@ Biblioteki statyczne libmikmod.
 %patch -p0
 
 %build
-LDFLAGS="-s"; export LDFLAGS
 %configure \
 	--enable-alsa \
 	--enable-esd \
@@ -92,12 +94,10 @@ LDFLAGS="-s"; export LDFLAGS
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*so.*.*
-
-gzip -9nf $RPM_BUILD_ROOT{%{_infodir},%{_mandir}/man1}/* \
-	AUTHORS NEWS PROBLEMS README TODO
+gzip -9nf AUTHORS NEWS PROBLEMS README TODO
 
 %clean
 rm -rf $RPM_BUILD_ROOT

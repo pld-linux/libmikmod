@@ -12,7 +12,7 @@ Summary(uk):	Звукова б╕бл╕отека libmikmod
 Name:		libmikmod
 %define		_ver	3.1.11
 Version:	%{_ver}a
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 #Source0Download: http://mikmod.raphnet.net/

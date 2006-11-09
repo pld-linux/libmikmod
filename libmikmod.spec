@@ -2,6 +2,7 @@
 # Conditional build:
 %bcond_with	alsa	# with ALSA; warning: SIGSEGV while using oss
 #
+%define		_ver	3.1.11
 Summary:	libmikmod - a portable sound library for Unix
 Summary(es):	Biblioteca de sonidos libmikmod
 Summary(fr):	BibliothХque sonore libmikmod
@@ -10,7 +11,6 @@ Summary(pt_BR):	Biblioteca de som libmikmod
 Summary(ru):	Звуковая библиотека libmikmod
 Summary(uk):	Звукова б╕бл╕отека libmikmod
 Name:		libmikmod
-%define		_ver	3.1.11
 Version:	%{_ver}a
 Release:	3
 License:	LGPL
@@ -18,21 +18,21 @@ Group:		Libraries
 #Source0Download: http://mikmod.raphnet.net/
 Source0:	http://mikmod.raphnet.net/files/%{name}-%{_ver}.tar.gz
 # Source0-md5:	705106da305e8de191549f1e7393185c
-Source1:	http://mikmod.raphnet.net/files/libmikmod-3.1.11-a.diff
+Source1:	http://mikmod.raphnet.net/files/%{name}-3.1.11-a.diff
 # Source1-md5:	5e56be5a32eecf3cfa195379a5ecb0ef
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-AC_LIBOBJ.patch
 URL:		http://mikmod.raphnet.net/
+%{?with_alsa:BuildRequires:	alsa-lib-devel}
+BuildRequires:	audiofile-devel
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
-BuildRequires:	libtool
-BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	esound-devel
-BuildRequires:	audiofile-devel
+BuildRequires:	gettext-devel >= 0.10.35-9
+BuildRequires:	libtool
 BuildRequires:	texinfo
-%{?with_alsa:BuildRequires:	alsa-lib-devel}
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libmikmod2
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Libmikmod is a portable sound library, capable of playing samples as
@@ -84,7 +84,7 @@ Summary(pt_BR):	Arquivos de inclusЦo e bibliotecas para desenvolver aplicaГУes l
 Summary(ru):	.h-файлы для разработки libmikmod-приложений
 Summary(uk):	.h-файли для розробки програм, що користуються libmikmod
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Obsoletes:	libmikmod2-devel
 
 %description devel
@@ -118,7 +118,7 @@ Summary(pt_BR):	Bibliotecas estАticas para desenvolvimento com libmikmod
 Summary(ru):	Статические библиотеки для разработки libmikmod-приложений
 Summary(uk):	Статичн╕ б╕бл╕отеки для розробки програм, що користуються libmikmod
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static libmikmod libraries.

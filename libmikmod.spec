@@ -4,12 +4,12 @@
 #
 %define		_ver	3.1.11
 Summary:	libmikmod - a portable sound library for Unix
-Summary(es):	Biblioteca de sonidos libmikmod
-Summary(fr):	BibliothХque sonore libmikmod
-Summary(pl):	libmikmod - biblioteka do obsЁugi d╪wiЙku dla rС©nych UniksСw
-Summary(pt_BR):	Biblioteca de som libmikmod
-Summary(ru):	Звуковая библиотека libmikmod
-Summary(uk):	Звукова б╕бл╕отека libmikmod
+Summary(es.UTF-8):   Biblioteca de sonidos libmikmod
+Summary(fr.UTF-8):   Bibliothц╗que sonore libmikmod
+Summary(pl.UTF-8):   libmikmod - biblioteka do obsе┌ugi dе╨wiд≥ku dla rцЁе╪nych UniksцЁw
+Summary(pt_BR.UTF-8):   Biblioteca de som libmikmod
+Summary(ru.UTF-8):   п≈п╡я┐п╨п╬п╡п╟я▐ п╠п╦п╠п╩п╦п╬я┌п╣п╨п╟ libmikmod
+Summary(uk.UTF-8):   п≈п╡я┐п╨п╬п╡п╟ п╠я√п╠п╩я√п╬я┌п╣п╨п╟ libmikmod
 Name:		libmikmod
 Version:	%{_ver}a
 Release:	3
@@ -47,42 +47,42 @@ Supported file formats include mod, stm, s3m, mtm, xm, and it. Full
 source included, use of this library for music/sound effects in your
 own programs is encouraged !
 
-%description -l es
+%description -l es.UTF-8
 Biblioteca de sonidos libmikmod.
 
-%description -l fr
-Une bibliothХque sonore portable pour Unix et d'autres systХmes,
+%description -l fr.UTF-8
+Une bibliothц╗que sonore portable pour Unix et d'autres systц╗mes,
 capable de jouer aussi bien des effets sonores que des modules, sur un
-grand choix de pИriphИriques sonores.
+grand choix de pц╘riphц╘riques sonores.
 
-%description -l pl
-Biblioteka d╪wiЙku dla Uniksa i innych systemСw, umo©liwiaj╠ca
-odtwarzanie sampli i moduЁСw d╪wiЙkowych na wielu rodzajach urz╠dzeЯ
-d╪wiЙkowych.
+%description -l pl.UTF-8
+Biblioteka dе╨wiд≥ku dla Uniksa i innych systemцЁw, umoе╪liwiajд┘ca
+odtwarzanie sampli i moduе┌цЁw dе╨wiд≥kowych na wielu rodzajach urzд┘dzeе└
+dе╨wiд≥kowych.
 
-Wspierane formaty plikСw to miЙdzy innymi mod, stm, s3m, mtm, xm i it.
+Wspierane formaty plikцЁw to miд≥dzy innymi mod, stm, s3m, mtm, xm i it.
 
-%description -l pt_BR
-Uma biblioteca de som portАtil para o Unix e outros sistemas
+%description -l pt_BR.UTF-8
+Uma biblioteca de som portц║til para o Unix e outros sistemas
 operacionais, capaz de tocar samples agem de arquivos .mod, em uma
 grande variedade de dispositivos de som.
 
-%description -l ru
-Мобильная звуковая библиотека для *nix, умеющая проигрывать сэмплы и
-MOD'ы на большом количестве звуковых устройств.
+%description -l ru.UTF-8
+п°п╬п╠п╦п╩я▄п╫п╟я▐ п╥п╡я┐п╨п╬п╡п╟я▐ п╠п╦п╠п╩п╦п╬я┌п╣п╨п╟ п╢п╩я▐ *nix, я┐п╪п╣я▌я┴п╟я▐ п©я─п╬п╦пЁя─я▀п╡п╟я┌я▄ я│я█п╪п©п╩я▀ п╦
+MOD'я▀ п╫п╟ п╠п╬п╩я▄я┬п╬п╪ п╨п╬п╩п╦я┤п╣я│я┌п╡п╣ п╥п╡я┐п╨п╬п╡я▀я┘ я┐я│я┌я─п╬п╧я│я┌п╡.
 
-%description -l uk
-Переносима звукова б╕бл╕отека для *nix, здатна програвати семпли та
-"модул╕" на велик╕й к╕лькост╕ звукових пристро╖в.
+%description -l uk.UTF-8
+п÷п╣я─п╣п╫п╬я│п╦п╪п╟ п╥п╡я┐п╨п╬п╡п╟ п╠я√п╠п╩я√п╬я┌п╣п╨п╟ п╢п╩я▐ *nix, п╥п╢п╟я┌п╫п╟ п©я─п╬пЁя─п╟п╡п╟я┌п╦ я│п╣п╪п©п╩п╦ я┌п╟
+"п╪п╬п╢я┐п╩я√" п╫п╟ п╡п╣п╩п╦п╨я√п╧ п╨я√п╩я▄п╨п╬я│я┌я√ п╥п╡я┐п╨п╬п╡п╦я┘ п©я─п╦я│я┌я─п╬я≈п╡.
 
 %package devel
 Summary:	Libraries and include files to develop libmikmod applications
-Summary(es):	Archivos de inclusiСn y bibliotecas para desarrollar aplicaciones libmikmod
-Summary(fr):	BibliothХques et includes pour programmer pour libmikmod
-Summary(pl):	Biblioteki i pliki nagЁСwkowe dla libmikmod
-Summary(pt_BR):	Arquivos de inclusЦo e bibliotecas para desenvolver aplicaГУes libmikmod
-Summary(ru):	.h-файлы для разработки libmikmod-приложений
-Summary(uk):	.h-файли для розробки програм, що користуються libmikmod
+Summary(es.UTF-8):   Archivos de inclusiцЁn y bibliotecas para desarrollar aplicaciones libmikmod
+Summary(fr.UTF-8):   Bibliothц╗ques et includes pour programmer pour libmikmod
+Summary(pl.UTF-8):   Biblioteki i pliki nagе┌цЁwkowe dla libmikmod
+Summary(pt_BR.UTF-8):   Arquivos de inclusцёo e bibliotecas para desenvolver aplicaц╖ц╣es libmikmod
+Summary(ru.UTF-8):   .h-я└п╟п╧п╩я▀ п╢п╩я▐ я─п╟п╥я─п╟п╠п╬я┌п╨п╦ libmikmod-п©я─п╦п╩п╬п╤п╣п╫п╦п╧
+Summary(uk.UTF-8):   .h-я└п╟п╧п╩п╦ п╢п╩я▐ я─п╬п╥я─п╬п╠п╨п╦ п©я─п╬пЁя─п╟п╪, я┴п╬ п╨п╬я─п╦я│я┌я┐я▌я┌я▄я│я▐ libmikmod
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Obsoletes:	libmikmod2-devel
@@ -90,53 +90,53 @@ Obsoletes:	libmikmod2-devel
 %description devel
 Libraries and include files to develop libmikmod applications.
 
-%description devel -l es
-Archivos de inclusiСn y bibliotecas para desarrollar aplicaciones
+%description devel -l es.UTF-8
+Archivos de inclusiцЁn y bibliotecas para desarrollar aplicaciones
 libmikmod.
 
-%description devel -l fr
-BibliothХques et includes pour programmer pour libmikmod.
+%description devel -l fr.UTF-8
+Bibliothц╗ques et includes pour programmer pour libmikmod.
 
-%description devel -l pl
-Biblioteki i pliki nagЁСwkowe do tworzenia aplikacji dla libmikmod.
+%description devel -l pl.UTF-8
+Biblioteki i pliki nagе┌цЁwkowe do tworzenia aplikacji dla libmikmod.
 
-%description devel -l pt_BR
-Arquivos de inclusЦo e bibliotecas para desenvolver aplicaГУes
+%description devel -l pt_BR.UTF-8
+Arquivos de inclusцёo e bibliotecas para desenvolver aplicaц╖ц╣es
 libmikmod.
 
-%description devel -l ru
-.h-файлы для разработки libmikmod-приложений.
+%description devel -l ru.UTF-8
+.h-я└п╟п╧п╩я▀ п╢п╩я▐ я─п╟п╥я─п╟п╠п╬я┌п╨п╦ libmikmod-п©я─п╦п╩п╬п╤п╣п╫п╦п╧.
 
-%description devel -l uk
-.h-файли для розробки програм, що користуються libmikmod.
+%description devel -l uk.UTF-8
+.h-я└п╟п╧п╩п╦ п╢п╩я▐ я─п╬п╥я─п╬п╠п╨п╦ п©я─п╬пЁя─п╟п╪, я┴п╬ п╨п╬я─п╦я│я┌я┐я▌я┌я▄я│я▐ libmikmod.
 
 %package static
 Summary:	Static libmikmod libraries
-Summary(fr):	BibliothХques statiques libmikmod
-Summary(pl):	Biblioteki statyczne libmikmod
-Summary(pt_BR):	Bibliotecas estАticas para desenvolvimento com libmikmod
-Summary(ru):	Статические библиотеки для разработки libmikmod-приложений
-Summary(uk):	Статичн╕ б╕бл╕отеки для розробки програм, що користуються libmikmod
+Summary(fr.UTF-8):   Bibliothц╗ques statiques libmikmod
+Summary(pl.UTF-8):   Biblioteki statyczne libmikmod
+Summary(pt_BR.UTF-8):   Bibliotecas estц║ticas para desenvolvimento com libmikmod
+Summary(ru.UTF-8):   п║я┌п╟я┌п╦я┤п╣я│п╨п╦п╣ п╠п╦п╠п╩п╦п╬я┌п╣п╨п╦ п╢п╩я▐ я─п╟п╥я─п╟п╠п╬я┌п╨п╦ libmikmod-п©я─п╦п╩п╬п╤п╣п╫п╦п╧
+Summary(uk.UTF-8):   п║я┌п╟я┌п╦я┤п╫я√ п╠я√п╠п╩я√п╬я┌п╣п╨п╦ п╢п╩я▐ я─п╬п╥я─п╬п╠п╨п╦ п©я─п╬пЁя─п╟п╪, я┴п╬ п╨п╬я─п╦я│я┌я┐я▌я┌я▄я│я▐ libmikmod
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static libmikmod libraries.
 
-%description static -l fr
-BibliothХques statiques libmikmod.
+%description static -l fr.UTF-8
+Bibliothц╗ques statiques libmikmod.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Biblioteki statyczne libmikmod.
 
-%description static -l pt_BR
-Bibliotecas estАticas para desenvolvimento com libmikmod.
+%description static -l pt_BR.UTF-8
+Bibliotecas estц║ticas para desenvolvimento com libmikmod.
 
-%description static -l ru
-Статические библиотеки для разработки libmikmod-приложений.
+%description static -l ru.UTF-8
+п║я┌п╟я┌п╦я┤п╣я│п╨п╦п╣ п╠п╦п╠п╩п╦п╬я┌п╣п╨п╦ п╢п╩я▐ я─п╟п╥я─п╟п╠п╬я┌п╨п╦ libmikmod-п©я─п╦п╩п╬п╤п╣п╫п╦п╧.
 
-%description static -l uk
-Статичн╕ б╕бл╕отеки для розробки програм, що користуються libmikmod.
+%description static -l uk.UTF-8
+п║я┌п╟я┌п╦я┤п╫я√ п╠я√п╠п╩я√п╬я┌п╣п╨п╦ п╢п╩я▐ я─п╬п╥я─п╬п╠п╨п╦ п©я─п╬пЁя─п╟п╪, я┴п╬ п╨п╬я─п╦я│я┌я┐я▌я┌я▄я│я▐ libmikmod.
 
 %prep
 %setup -q -n %{name}-%{_ver}

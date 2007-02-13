@@ -4,12 +4,12 @@
 #
 %define		_ver	3.1.11
 Summary:	libmikmod - a portable sound library for Unix
-Summary(es.UTF-8):   Biblioteca de sonidos libmikmod
-Summary(fr.UTF-8):   Bibliothèque sonore libmikmod
-Summary(pl.UTF-8):   libmikmod - biblioteka do obsługi dźwięku dla różnych Uniksów
-Summary(pt_BR.UTF-8):   Biblioteca de som libmikmod
-Summary(ru.UTF-8):   Звуковая библиотека libmikmod
-Summary(uk.UTF-8):   Звукова бібліотека libmikmod
+Summary(es.UTF-8):	Biblioteca de sonidos libmikmod
+Summary(fr.UTF-8):	Bibliothèque sonore libmikmod
+Summary(pl.UTF-8):	libmikmod - biblioteka do obsługi dźwięku dla różnych Uniksów
+Summary(pt_BR.UTF-8):	Biblioteca de som libmikmod
+Summary(ru.UTF-8):	Звуковая библиотека libmikmod
+Summary(uk.UTF-8):	Звукова бібліотека libmikmod
 Name:		libmikmod
 Version:	%{_ver}a
 Release:	3
@@ -77,12 +77,12 @@ MOD'ы на большом количестве звуковых устройс�
 
 %package devel
 Summary:	Libraries and include files to develop libmikmod applications
-Summary(es.UTF-8):   Archivos de inclusión y bibliotecas para desarrollar aplicaciones libmikmod
-Summary(fr.UTF-8):   Bibliothèques et includes pour programmer pour libmikmod
-Summary(pl.UTF-8):   Biblioteki i pliki nagłówkowe dla libmikmod
-Summary(pt_BR.UTF-8):   Arquivos de inclusão e bibliotecas para desenvolver aplicações libmikmod
-Summary(ru.UTF-8):   .h-файлы для разработки libmikmod-приложений
-Summary(uk.UTF-8):   .h-файли для розробки програм, що користуються libmikmod
+Summary(es.UTF-8):	Archivos de inclusión y bibliotecas para desarrollar aplicaciones libmikmod
+Summary(fr.UTF-8):	Bibliothèques et includes pour programmer pour libmikmod
+Summary(pl.UTF-8):	Biblioteki i pliki nagłówkowe dla libmikmod
+Summary(pt_BR.UTF-8):	Arquivos de inclusão e bibliotecas para desenvolver aplicações libmikmod
+Summary(ru.UTF-8):	.h-файлы для разработки libmikmod-приложений
+Summary(uk.UTF-8):	.h-файли для розробки програм, що користуються libmikmod
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Obsoletes:	libmikmod2-devel
@@ -112,11 +112,11 @@ libmikmod.
 
 %package static
 Summary:	Static libmikmod libraries
-Summary(fr.UTF-8):   Bibliothèques statiques libmikmod
-Summary(pl.UTF-8):   Biblioteki statyczne libmikmod
-Summary(pt_BR.UTF-8):   Bibliotecas estáticas para desenvolvimento com libmikmod
-Summary(ru.UTF-8):   Статические библиотеки для разработки libmikmod-приложений
-Summary(uk.UTF-8):   Статичні бібліотеки для розробки програм, що користуються libmikmod
+Summary(fr.UTF-8):	Bibliothèques statiques libmikmod
+Summary(pl.UTF-8):	Biblioteki statyczne libmikmod
+Summary(pt_BR.UTF-8):	Bibliotecas estáticas para desenvolvimento com libmikmod
+Summary(ru.UTF-8):	Статические библиотеки для разработки libmikmod-приложений
+Summary(uk.UTF-8):	Статичні бібліотеки для розробки програм, що користуються libmikmod
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 

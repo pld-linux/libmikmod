@@ -12,7 +12,7 @@ Summary(ru.UTF-8):	Звуковая библиотека libmikmod
 Summary(uk.UTF-8):	Звукова бібліотека libmikmod
 Name:		libmikmod
 Version:	%{_ver}a
-Release:	3
+Release:	4
 License:	LGPL
 Group:		Libraries
 #Source0Download: http://mikmod.raphnet.net/

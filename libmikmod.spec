@@ -30,6 +30,7 @@ BuildRequires:	automake
 BuildRequires:	esound-devel
 BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	libtool
+BuildRequires:	pkgconfig
 BuildRequires:	texinfo
 Obsoletes:	libmikmod2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)

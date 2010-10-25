@@ -1,8 +1,8 @@
 #
 # Conditional build:
-%bcond_with	alsa	# with ALSA; warning: SIGSEGV while using oss
+%bcond_with	alsa	# ALSA support; warning: SIGSEGV while using oss
+%bcond_with	esound	# EsounD support
 #
-%define		_ver	3.1.11
 Summary:	libmikmod - a portable sound library for Unix
 Summary(es.UTF-8):	Biblioteca de sonidos libmikmod
 Summary(fr.UTF-8):	Bibliothèque sonore libmikmod
@@ -11,15 +11,12 @@ Summary(pt_BR.UTF-8):	Biblioteca de som libmikmod
 Summary(ru.UTF-8):	Звуковая библиотека libmikmod
 Summary(uk.UTF-8):	Звукова бібліотека libmikmod
 Name:		libmikmod
-Version:	%{_ver}a
-Release:	4
-License:	LGPL
+Version:	3.1.12
+Release:	1
+License:	LGPL v2+
 Group:		Libraries
-#Source0Download: http://mikmod.raphnet.net/
-Source0:	http://mikmod.raphnet.net/files/%{name}-%{_ver}.tar.gz
-# Source0-md5:	705106da305e8de191549f1e7393185c
-Source1:	http://mikmod.raphnet.net/files/%{name}-3.1.11-a.diff
-# Source1-md5:	5e56be5a32eecf3cfa195379a5ecb0ef
+Source0:	http://downloads.sourceforge.net/mikmod/%{name}-%{version}.tar.gz
+# Source0-md5:	9f3c740298260d5f88981fc0d51f6f16
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-AC_LIBOBJ.patch
 URL:		http://mikmod.raphnet.net/
@@ -27,7 +24,7 @@ URL:		http://mikmod.raphnet.net/
 BuildRequires:	audiofile-devel
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
-BuildRequires:	esound-devel
+%{?with_esound:BuildRequires:	esound-devel}
 BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
@@ -140,19 +137,20 @@ Bibliotecas estáticas para desenvolvimento com libmikmod.
 Статичні бібліотеки для розробки програм, що користуються libmikmod.
 
 %prep
-%setup -q -n %{name}-%{_ver}
-%{__patch} -p1 < %{SOURCE1}
+%setup -q
 %patch0 -p0
 %patch1 -p1
 
 %build
-cp -f /usr/share/automake/{config.*,missing} .
+#cp -f /usr/share/automake/{config.*,missing} .
 %{__libtoolize}
 %{__aclocal}
+%{__autoheader}
 %{__autoconf}
+%{__automake}
 %configure \
-	%{!?with_alsa:--disable-alsa}%{?with_alsa:--enable-alsa} \
-	--enable-esd \
+	%{!?with_alsa:--disable-alsa} \
+	%{!?with_esound:--disable-esd} \
 	--enable-oss
 %{__make}
 
@@ -168,28 +166,28 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%post devel	-p	/sbin/postshell
+%post	devel -p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
-%postun devel	-p	/sbin/postshell
+%postun	devel -p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS NEWS README TODO
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/libmikmod.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libmikmod.so.2
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/libmikmod-config
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
-
+%attr(755,root,root) %{_libdir}/libmikmod.so
+%{_libdir}/libmikmod.la
+%{_includedir}/mikmod.h
+%{_aclocaldir}/libmikmod.m4
 %{_mandir}/man1/libmikmod-config.1*
-%{_infodir}/mikmod*
-%{_includedir}/*
-%{_aclocaldir}/*
+%{_infodir}/mikmod.info*
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libmikmod.a

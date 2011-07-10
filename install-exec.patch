@@ -1,0 +1,11 @@
+--- libmikmod-3.1.12/libmikmod/Makefile.in~	2011-07-10 19:03:26.000000000 +0300
++++ libmikmod-3.1.12/libmikmod/Makefile.in	2011-07-10 19:07:18.167133434 +0300
+@@ -51,7 +51,7 @@
+ 
+ install:	$(LIB)
+ 	$(MKINSTALLDIRS) $(DESTDIR)$(libdir)
+-	$(LIBTOOL) --mode=install $(INSTALL) -m 644 $(LIB) $(DESTDIR)$(libdir)
++	$(LIBTOOL) --mode=install $(INSTALL) -m 755 $(LIB) $(DESTDIR)$(libdir)
+ 
+ uninstall:	$(LIB)
+ 	$(LIBTOOL) --mode=uninstall rm -f $(DESTDIR)$(libdir)/$(LIB)

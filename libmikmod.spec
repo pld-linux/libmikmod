@@ -1,7 +1,7 @@
 #
 # Conditional build:
 %bcond_with	alsa	# ALSA support; warning: SIGSEGV while using oss
-%bcond_with	esound	# EsounD support
+%bcond_with	esd		# EsounD support
 
 Summary:	libmikmod - a portable sound library for Unix
 Summary(es.UTF-8):	Biblioteca de sonidos libmikmod
@@ -12,7 +12,7 @@ Summary(ru.UTF-8):	Звуковая библиотека libmikmod
 Summary(uk.UTF-8):	Звукова бібліотека libmikmod
 Name:		libmikmod
 Version:	3.1.12
-Release:	2
+Release:	3
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/mikmod/%{name}-%{version}.tar.gz
@@ -25,7 +25,7 @@ URL:		http://mikmod.raphnet.net/
 BuildRequires:	audiofile-devel
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
-%{?with_esound:BuildRequires:	esound-devel}
+%{?with_esd:BuildRequires:	esound-devel}
 BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
@@ -142,6 +142,10 @@ Bibliotecas estáticas para desenvolvimento com libmikmod.
 %patch0 -p0
 %patch1 -p1
 %patch2 -p1
+
+%if %{without esd}
+echo 'AC_DEFUN([AM_PATH_ESD],[$3])' >> acinclude.m4
+%endif
 
 %build
 #cp -f /usr/share/automake/{config.*,missing} .

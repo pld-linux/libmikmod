@@ -12,7 +12,7 @@ Summary(ru.UTF-8):	Звуковая библиотека libmikmod
 Summary(uk.UTF-8):	Звукова бібліотека libmikmod
 Name:		libmikmod
 Version:	3.1.12
-Release:	3
+Release:	4
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/mikmod/%{name}-%{version}.tar.gz
@@ -20,6 +20,7 @@ Source0:	http://downloads.sourceforge.net/mikmod/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-AC_LIBOBJ.patch
 Patch2:		install-exec.patch
+Patch3:		%{name}-lib64.patch
 URL:		http://mikmod.raphnet.net/
 %{?with_alsa:BuildRequires:	alsa-lib-devel}
 BuildRequires:	audiofile-devel
@@ -142,6 +143,7 @@ Bibliotecas estáticas para desenvolvimento com libmikmod.
 %patch0 -p0
 %patch1 -p1
 %patch2 -p1
+%patch3 -p0
 
 %if %{without esd}
 echo 'AC_DEFUN([AM_PATH_ESD],[$3])' >> acinclude.m4

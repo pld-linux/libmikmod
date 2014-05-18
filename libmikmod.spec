@@ -1,7 +1,11 @@
 #
 # Conditional build:
-%bcond_with	alsa	# ALSA support; warning: SIGSEGV while using oss
-%bcond_with	esd	# EsounD support
+%bcond_without	alsa		# ALSA support
+%bcond_with	esd		# EsounD support
+%bcond_with	nas		# NAS support
+%bcond_with	openal		# OpenAL support
+%bcond_without	pulseaudio	# PulseAudio support
+%bcond_with	sdl		# SDL support
 
 Summary:	libmikmod - a portable sound library for Unix
 Summary(es.UTF-8):	Biblioteca de sonidos libmikmod
@@ -11,21 +15,25 @@ Summary(pt_BR.UTF-8):	Biblioteca de som libmikmod
 Summary(ru.UTF-8):	Звуковая библиотека libmikmod
 Summary(uk.UTF-8):	Звукова бібліотека libmikmod
 Name:		libmikmod
-Version:	3.1.17
+Version:	3.3.6
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/mikmod/%{name}-%{version}.tar.gz
-# Source0-md5:	89b4f370ea1771c99e607cc6d7aff435
+# Source0-md5:	9dd9bed30c6f7607a55480234606071b
 Patch0:		%{name}-info.patch
 URL:		http://mikmod.raphnet.net/
+%{?with_openal:BuildRequires:	OpenAL-devel}
+%{?with_sdl:BuildRequires:	SDL2-devel >= 2.0.0}
 %{?with_alsa:BuildRequires:	alsa-lib-devel}
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.10
 %{?with_esd:BuildRequires:	esound-devel >= 0.2.18}
 BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	libtool
+%{?with_nas:BuildRequires:	nas-devel}
 BuildRequires:	pkgconfig
+%{?with_pulseaudio:BuildRequires:	pulseaudio-devel}
 BuildRequires:	texinfo
 Obsoletes:	libmikmod2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -151,7 +159,11 @@ echo 'AC_DEFUN([AM_PATH_ESD],[$3])' >> acinclude.m4
 %configure \
 	%{!?with_alsa:--disable-alsa} \
 	%{!?with_esound:--disable-esd} \
-	--enable-oss
+	%{?with_nas:--enable-nas} \
+	%{?with_openal:--enable-openal} \
+	--enable-oss \
+	%{!?with_pulseaudio:--disable-pulseaudio} \
+	%{?with_sdl:--enable-sdl}
 %{__make}
 
 %install
@@ -177,7 +189,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS NEWS README TODO
 %attr(755,root,root) %{_libdir}/libmikmod.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libmikmod.so.2
+%attr(755,root,root) %ghost %{_libdir}/libmikmod.so.3
 
 %files devel
 %defattr(644,root,root,755)

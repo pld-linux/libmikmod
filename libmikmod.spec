@@ -1,7 +1,7 @@
 #
 # Conditional build:
 %bcond_with	alsa	# ALSA support; warning: SIGSEGV while using oss
-%bcond_with	esd		# EsounD support
+%bcond_with	esd	# EsounD support
 
 Summary:	libmikmod - a portable sound library for Unix
 Summary(es.UTF-8):	Biblioteca de sonidos libmikmod
@@ -11,22 +11,18 @@ Summary(pt_BR.UTF-8):	Biblioteca de som libmikmod
 Summary(ru.UTF-8):	Звуковая библиотека libmikmod
 Summary(uk.UTF-8):	Звукова бібліотека libmikmod
 Name:		libmikmod
-Version:	3.1.12
-Release:	4
+Version:	3.1.17
+Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/mikmod/%{name}-%{version}.tar.gz
-# Source0-md5:	9f3c740298260d5f88981fc0d51f6f16
+# Source0-md5:	89b4f370ea1771c99e607cc6d7aff435
 Patch0:		%{name}-info.patch
-Patch1:		%{name}-AC_LIBOBJ.patch
-Patch2:		install-exec.patch
-Patch3:		%{name}-lib64.patch
 URL:		http://mikmod.raphnet.net/
 %{?with_alsa:BuildRequires:	alsa-lib-devel}
-BuildRequires:	audiofile-devel
-BuildRequires:	autoconf >= 2.53
-BuildRequires:	automake
-%{?with_esd:BuildRequires:	esound-devel}
+BuildRequires:	autoconf >= 2.63
+BuildRequires:	automake >= 1:1.10
+%{?with_esd:BuildRequires:	esound-devel >= 0.2.18}
 BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
@@ -76,11 +72,11 @@ MOD'ы на большом количестве звуковых устройс�
 "модулі" на великій кількості звукових пристроїв.
 
 %package devel
-Summary:	Libraries and include files to develop libmikmod applications
-Summary(es.UTF-8):	Archivos de inclusión y bibliotecas para desarrollar aplicaciones libmikmod
-Summary(fr.UTF-8):	Bibliothèques et includes pour programmer pour libmikmod
-Summary(pl.UTF-8):	Biblioteki i pliki nagłówkowe dla libmikmod
-Summary(pt_BR.UTF-8):	Arquivos de inclusão e bibliotecas para desenvolver aplicações libmikmod
+Summary:	Include files to develop libmikmod applications
+Summary(es.UTF-8):	Archivos de inclusión para desarrollar aplicaciones libmikmod
+Summary(fr.UTF-8):	Includes pour programmer pour libmikmod
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libmikmod
+Summary(pt_BR.UTF-8):	Arquivos de inclusão para desenvolver aplicações libmikmod
 Summary(ru.UTF-8):	.h-файлы для разработки libmikmod-приложений
 Summary(uk.UTF-8):	.h-файли для розробки програм, що користуються libmikmod
 Group:		Development/Libraries
@@ -88,21 +84,20 @@ Requires:	%{name} = %{version}-%{release}
 Obsoletes:	libmikmod2-devel
 
 %description devel
-Libraries and include files to develop libmikmod applications.
+Include files to develop libmikmod applications.
 
 %description devel -l es.UTF-8
-Archivos de inclusión y bibliotecas para desarrollar aplicaciones
-libmikmod.
+Archivos de inclusión para desarrollar aplicaciones libmikmod.
 
 %description devel -l fr.UTF-8
-Bibliothèques et includes pour programmer pour libmikmod.
+Includes pour programmer pour libmikmod.
 
 %description devel -l pl.UTF-8
-Biblioteki i pliki nagłówkowe do tworzenia aplikacji dla libmikmod.
+Pliki nagłówkowe do tworzenia aplikacji wykorzystujących bibliotekę
+libmikmod.
 
 %description devel -l pt_BR.UTF-8
-Arquivos de inclusão e bibliotecas para desenvolver aplicações
-libmikmod.
+Arquivos de inclusão para desenvolver aplicações libmikmod.
 
 %description devel -l ru.UTF-8
 .h-файлы для разработки libmikmod-приложений.
@@ -111,9 +106,9 @@ libmikmod.
 .h-файли для розробки програм, що користуються libmikmod.
 
 %package static
-Summary:	Static libmikmod libraries
+Summary:	Static libmikmod library
 Summary(fr.UTF-8):	Bibliothèques statiques libmikmod
-Summary(pl.UTF-8):	Biblioteki statyczne libmikmod
+Summary(pl.UTF-8):	Biblioteka statyczna libmikmod
 Summary(pt_BR.UTF-8):	Bibliotecas estáticas para desenvolvimento com libmikmod
 Summary(ru.UTF-8):	Статические библиотеки для разработки libmikmod-приложений
 Summary(uk.UTF-8):	Статичні бібліотеки для розробки програм, що користуються libmikmod
@@ -121,13 +116,13 @@ Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
-Static libmikmod libraries.
+Static libmikmod library.
 
 %description static -l fr.UTF-8
 Bibliothèques statiques libmikmod.
 
 %description static -l pl.UTF-8
-Biblioteki statyczne libmikmod.
+Biblioteka statyczna libmikmod.
 
 %description static -l pt_BR.UTF-8
 Bibliotecas estáticas para desenvolvimento com libmikmod.
@@ -141,21 +136,18 @@ Bibliotecas estáticas para desenvolvimento com libmikmod.
 %prep
 %setup -q
 %patch0 -p0
-%patch1 -p1
-%patch2 -p1
-%patch3 -p0
 
 %if %{without esd}
 echo 'AC_DEFUN([AM_PATH_ESD],[$3])' >> acinclude.m4
 %endif
 
 %build
-#cp -f /usr/share/automake/{config.*,missing} .
 %{__libtoolize}
 %{__aclocal}
 %{__autoheader}
 %{__autoconf}
 %{__automake}
+# note: audiofile (af) driver is for DEC AudioFile server (libAF), not libaudiofile library
 %configure \
 	%{!?with_alsa:--disable-alsa} \
 	%{!?with_esound:--disable-esd} \
@@ -193,6 +185,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libmikmod.so
 %{_libdir}/libmikmod.la
 %{_includedir}/mikmod.h
+%{_pkgconfigdir}/libmikmod.pc
 %{_aclocaldir}/libmikmod.m4
 %{_mandir}/man1/libmikmod-config.1*
 %{_infodir}/mikmod.info*

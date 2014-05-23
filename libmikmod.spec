@@ -155,7 +155,8 @@ echo 'AC_DEFUN([AM_PATH_ESD],[$3])' >> acinclude.m4
 %{__autoheader}
 %{__autoconf}
 %{__automake}
-# note: audiofile (af) driver is for DEC AudioFile server (libAF), not libaudiofile library
+# note: audiofile (af) driver is for DEC AudioFile server (libAF), not libaudiofile library;
+# libgus was an ancient (Linux < 2.2) GUS support library ("ultra" package)
 %configure \
 	%{!?with_alsa:--disable-alsa} \
 	%{!?with_esound:--disable-esd} \

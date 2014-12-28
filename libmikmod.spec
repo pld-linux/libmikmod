@@ -29,7 +29,7 @@ URL:		http://mikmod.raphnet.net/
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.10
 %{?with_esd:BuildRequires:	esound-devel >= 0.2.18}
-BuildRequires:	gettext-devel >= 0.10.35-9
+BuildRequires:	gettext-tools >= 0.10.35-9
 BuildRequires:	libtool
 %{?with_nas:BuildRequires:	nas-devel}
 BuildRequires:	pkgconfig

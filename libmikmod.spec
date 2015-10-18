@@ -15,12 +15,12 @@ Summary(pt_BR.UTF-8):	Biblioteca de som libmikmod
 Summary(ru.UTF-8):	Звуковая библиотека libmikmod
 Summary(uk.UTF-8):	Звукова бібліотека libmikmod
 Name:		libmikmod
-Version:	3.3.6
-Release:	2
+Version:	3.3.7
+Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/mikmod/%{name}-%{version}.tar.gz
-# Source0-md5:	9dd9bed30c6f7607a55480234606071b
+# Source0-md5:	bc6bea190cb8d2ce2b105cc0ff811681
 Patch0:		%{name}-info.patch
 URL:		http://mikmod.raphnet.net/
 %{?with_openal:BuildRequires:	OpenAL-devel}

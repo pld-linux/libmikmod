@@ -5,7 +5,7 @@
 %bcond_with	nas		# NAS support
 %bcond_with	openal		# OpenAL support
 %bcond_without	pulseaudio	# PulseAudio support
-%bcond_with	sdl		# SDL support
+%bcond_without	sdl		# SDL support
 
 Summary:	libmikmod - a portable sound library for Unix
 Summary(es.UTF-8):	Biblioteca de sonidos libmikmod
@@ -16,7 +16,7 @@ Summary(ru.UTF-8):	Звуковая библиотека libmikmod
 Summary(uk.UTF-8):	Звукова бібліотека libmikmod
 Name:		libmikmod
 Version:	3.3.8
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/mikmod/%{name}-%{version}.tar.gz

@@ -16,7 +16,7 @@ Summary(ru.UTF-8):	Звуковая библиотека libmikmod
 Summary(uk.UTF-8):	Звукова бібліотека libmikmod
 Name:		libmikmod
 Version:	3.3.11.1
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/mikmod/%{name}-%{version}.tar.gz
@@ -89,6 +89,8 @@ Summary(ru.UTF-8):	.h-файлы для разработки libmikmod-прил�
 Summary(uk.UTF-8):	.h-файли для розробки програм, що користуються libmikmod
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	SDL2-devel
+Requires:	pulseaudio-devel
 Obsoletes:	libmikmod2-devel
 
 %description devel

@@ -15,14 +15,14 @@ Summary(pt_BR.UTF-8):	Biblioteca de som libmikmod
 Summary(ru.UTF-8):	Звуковая библиотека libmikmod
 Summary(uk.UTF-8):	Звукова бібліотека libmikmod
 Name:		libmikmod
-Version:	3.3.11.1
-Release:	2
+Version:	3.3.12
+Release:	1
 License:	LGPL v2+
 Group:		Libraries
-Source0:	http://downloads.sourceforge.net/mikmod/%{name}-%{version}.tar.gz
-# Source0-md5:	f69d7dd06d307e888f466fc27f4f680b
+Source0:	https://downloads.sourceforge.net/mikmod/%{name}-%{version}.tar.gz
+# Source0-md5:	808610de0f8b5b716f9836b4e87ac1bb
 Patch0:		%{name}-info.patch
-URL:		http://mikmod.raphnet.net/
+URL:		https://mikmod.sourceforge.net/
 %{?with_openal:BuildRequires:	OpenAL-devel}
 %{?with_sdl:BuildRequires:	SDL2-devel >= 2.0.0}
 %{?with_alsa:BuildRequires:	alsa-lib-devel}
@@ -35,7 +35,7 @@ BuildRequires:	libtool
 BuildRequires:	pkgconfig
 %{?with_pulseaudio:BuildRequires:	pulseaudio-devel}
 BuildRequires:	texinfo
-Obsoletes:	libmikmod2
+Obsoletes:	libmikmod2 < 3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -91,7 +91,7 @@ Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	SDL2-devel
 Requires:	pulseaudio-devel
-Obsoletes:	libmikmod2-devel
+Obsoletes:	libmikmod2-devel < 3
 
 %description devel
 Include files to develop libmikmod applications.
@@ -145,7 +145,7 @@ Bibliotecas estáticas para desenvolvimento com libmikmod.
 
 %prep
 %setup -q
-%patch0 -p0
+%patch -P0 -p0
 
 %if %{without esd}
 echo 'AC_DEFUN([AM_PATH_ESD],[$3])' >> acinclude.m4
@@ -171,8 +171,12 @@ echo 'AC_DEFUN([AM_PATH_ESD],[$3])' >> acinclude.m4
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libmikmod.la
 
 rm -f $RPM_BUILD_ROOT%{_infodir}/dir
 
@@ -198,7 +202,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/libmikmod-config
 %attr(755,root,root) %{_libdir}/libmikmod.so
-%{_libdir}/libmikmod.la
 %{_includedir}/mikmod.h
 %{_pkgconfigdir}/libmikmod.pc
 %{_aclocaldir}/libmikmod.m4
